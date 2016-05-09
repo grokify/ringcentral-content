@@ -43,15 +43,15 @@ For RingCentral, the most important parts are the mobile number and the message 
 
 The `rcsendsms` code needs format the incoming query string data to use the RingCentral SMS API. When the `rcsendsms` script receives the request, it should reformat it and send it to the RingCentral API using the mobile number as the `to.phoneNumber` JSON body value and the message as the `text` JSON body value as specified in the [RingCentral API Developer Guide](https://developer.ringcentral.com/api-docs/latest/index.html#!#RefSMSMessages.html).
 
-For authorization, the RingCentral extension credentials which can be a stored using the OAuth 2.0 password grant available for private apps. If this service is behind your firewall and you are confident in your security, this may be all that you need. If you wish to lock down this service you can add your own password and send that as a header so that it's not captured in logs.
+For authorization, the RingCentral extension credentials can be a stored using the OAuth 2.0 password grant available for private apps. If this service is behind your firewall and you are confident in your security, this may be all that you need. If you wish to lock down this service you can add your own password or key and send that as a header so that it's not captured in server logs.
 
-While all RingCentral SDKs will automatically handle refresh tokens for you, if you do not wish to manage OAuth 2.0 refresh tokens, you can set the `refresh_token_ttl` value to `-1` so no refresh token is created for the request.
+While all RingCentral SDKs will automatically handle refresh tokens for you, if you do not wish to manage OAuth 2.0 refresh tokens, you can set the `refresh_token_ttl` value to `-1` so no refresh token is created for the request and then you can request a new access token for each request. Requesting a new refresh token for each SMS API call may get your app blocked by RingCentral so be sensitive to this.
 
 ## Integration via Zapier
 
 To set up ManageEngine ADSelfService using HTTP-based Custom SMS Provider with RingCentral via Zapier, perform the following steps.
 
-Note: for the Zapier integration to work the phone number produced by the ManageEngine `%mobNo%` macro must match a format recognized by RingCentral, e.g. E.164 format with or without the leading `+`, for example, `+1 (650) 111-2222` would be represented as `16501112222`. The ManageEngine uses the formatting used in Active Directory.
+Note: for the Zapier integration to work the phone number produced by the ManageEngine `%mobNo%` macro must match a format recognized by RingCentral, e.g. E.164 format with or without the leading `+`, for example, `+1 (650) 111-2222` would be represented as `16501112222` or `+16501112222`. ManageEngine uses the formatting used in Active Directory.
 
 ### 1) Make a Zap!
 
