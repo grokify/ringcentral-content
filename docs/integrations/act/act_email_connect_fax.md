@@ -23,7 +23,7 @@ This recipe does not cover configuring a mail service or using the RingCentral e
 
 ### RingCentral Email-to-Fax Configuration
 
-To make this approach work with the RingCentral email-to-fax service (as opposed to the RingCentral API), you will need to configure the service to omit the cover page since Email-Connect will provide it's own cover page. To do this, follow the instructions in [KB 6643](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/6643) to set the `Omit cover page when email subject is blank` feature to `On`.
+To make this approach work with the RingCentral email-to-fax service (as opposed to the RingCentral API), you will need to configure the service to omit the cover page since Email-Connect will provide it's own cover page. To do this, follow the instructions in [KB 6643](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/6643) to set the `Omit cover page when email subject is blank` feature to `On` and do not include an email subject to the RingCentral email-to-fax emails.
 
 ## Conversion
 
