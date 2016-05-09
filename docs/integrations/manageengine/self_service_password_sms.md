@@ -40,9 +40,11 @@ For RingCentral, the most important parts are the mobile number and the message 
 
 ### 2) Making the RingCentral API Call
 
-The `rcsendsms` code should have the RC credentials which can be a stored password credential for private apps. If this service is behind your firewall and you are confident in your security, this may be all that you need. If you wish to lock down this service you can add your own password and send that as a header so that it's not captured in logs.
+The `rcsendsms` code needs format the incoming query string data to use the [RingCentral SMS API](https://developer.ringcentral.com/api-docs/latest/index.html#!#RefSMSMessages.html). When the `rcsendsms` script receives the request, it should reformat it and send it to the RingCentral API using the mobile number as the `to.phoneNumber` JSON body value and the message as the `text` JSON body value.
 
-When the `rcsendsms` script receives the request, it should reformat it and send it to the RingCentral API using the mobile number as the `to.phoneNumber` JSON body value and the message as the `text` JSON body value. While all RingCentral SDKs will automatically handle refresh tokens for you, if you do not wish to manage OAuth 2.0 refresh tokens, you can set the `refresh_token_ttl` value to `-1` so no refresh token is created for the request.
+For authorization, the RingCentral extension credentials which can be a stored using the OAuth 2.0 password grant available for private apps. If this service is behind your firewall and you are confident in your security, this may be all that you need. If you wish to lock down this service you can add your own password and send that as a header so that it's not captured in logs.
+
+While all RingCentral SDKs will automatically handle refresh tokens for you, if you do not wish to manage OAuth 2.0 refresh tokens, you can set the `refresh_token_ttl` value to `-1` so no refresh token is created for the request.
 
 ## Integration via Zapier
 
