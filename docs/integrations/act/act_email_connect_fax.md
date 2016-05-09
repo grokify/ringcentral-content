@@ -6,7 +6,7 @@ The ACT! [Email-Connect (Outlook)](http://www.actaddons.com/addons/email_connect
 
 Email-Connect will create a fax cover page image and send it as the body of the email. Addtional files can be added as attachments.
 
-RingCentral's email-to-fax capability does not process the email body as seen in [KB 6643](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/6643).
+RingCentral's email-to-fax capability does not process the email body as seen in [KB 6643](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/6643) so the Email-Connect cover page will not be included out of the box.
 
 To make these services interoperate as expected, it is necessary to set up an service that will modify the email sent by Email-Connect and then either forward it to the RingCentral email-to-fax service or call the [RingCentral Connect Platform API](https://developers.ringcentral.com).
 
@@ -14,7 +14,8 @@ This recipe has the following steps:
 
 1. Use of a mail server or mail service, e.g. [Mailgun](https://www.mailgun.com/) [SparkPost](https://www.sparkpost.com/) or [Sendgrid](https://sendgrid.com/).
 2. Configuring the mail server to listen for email-to-fax emails, e.g. email addresses like 16501112222@myserver.com.
-3. MIME processing of Outlook Connect to convert this to either RingCentral email-to-fax format or RingCentral API format.
+3. MIME processing of incoming Outlook Connect to convert to RingCentral MIME format.
+4. Sending new MIME message to RingCentral fax service via email-to-fax format or RingCentral API.
 
 ## Configuration
 
@@ -22,7 +23,7 @@ This recipe does not cover configuring a mail service or using the RingCentral e
 
 ### RingCentral Email-to-Fax Configuration
 
-To make this approach work with the RingCentral email-to-fax service (as opposed to the RingCentral API), you will need to configure the service to omit the cover page since Email-Connect will provide it's own cover page. To do this, follow the instructions in [KB 6643](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/6643) to turn `On` the `Omit cover page when email subject is blank` feature.
+To make this approach work with the RingCentral email-to-fax service (as opposed to the RingCentral API), you will need to configure the service to omit the cover page since Email-Connect will provide it's own cover page. To do this, follow the instructions in [KB 6643](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/6643) to set the `Omit cover page when email subject is blank` feature to `On`.
 
 ## Conversion
 
@@ -48,6 +49,8 @@ multipart/mixed
 - image/tiff
 ```
 
+This will cause RingCentral to treat the inline body `text/html` part as an attachment.
+
 ### Incoming MIME Format
 
 To retrieve the MIME message, you will need a program to read incoming email from your mail service. Using a developer-friendly mail service will make this easier, however, you can also use mail protocols like IMAP and may even be able to read email off the disk if your program is co-located with your MTA. When you retrieve the email, you will want the raw email format, MIME.
@@ -60,5 +63,8 @@ To convert the Outlook MIME to something RingCentral can use for fax, we'll want
 
 1. Run the ACT! MIME message through a MIME parser of your choice.
 2. Create a new MIME `multipart/mixed` object to copy desired MIME parts into.
-3. Retrieve the `multipart/alternative` body part and then extract the rich text part you want to retain, e.g. the `text/html` part. Load the `text/html` part as the first part in the new MIME object. You can discard the `text/plain` part since that will not retain the formatting desired.
+3. Retrieve the `multipart/alternative` body part and then extract the rich text part you want to retain, e.g. the `text/html` part. Load the `text/html` part as the first part in the new MIME object. You can set the `Content-Disposition` to `attachment` to ensure it is treated as such. The `text/plain` part can be discarded since that will not retain the formatting desired.
 4. For each subsequent MIME part, copy into the new MIME object.
+
+Now you can send the new MIME message to RingCentral's fax service via email-to-fax or API.
+
