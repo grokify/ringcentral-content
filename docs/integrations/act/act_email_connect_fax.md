@@ -49,7 +49,7 @@ multipart/mixed
 - image/tiff
 ```
 
-This will cause RingCentral to treat the inline body `text/html` part as an attachment and remove both the `multipart/alternative` and `text/plain` parts.
+This will remove both the `multipart/alternative` and `text/plain` parts and cause RingCentral to treat the inline body `text/html` part as the first attachment.
 
 By converting MIME to MIME, no rendering of email to PDF or other formats will be required.
 
