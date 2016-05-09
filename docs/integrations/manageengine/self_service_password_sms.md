@@ -62,7 +62,7 @@ Login to [Zapier](https://zapier.com) and click the `MAKE A ZAP!` button.
 1. Select the `Webhooks by Zapier` app.
 1. Select `Catch Hook: Wait for a new POST, PUT, or GET to a Zapier URL.` for the action.
 1. Click `Continue` on the Set up page, and do not enter anything in the `Pick off a Child Key` option.
-1. Use the webhook provided and send a GET request matching the one ManageEngine will provide, e.g. `https://zapier.com/hooks/catch/111111/222222/`
+1. Use the webhook provided and send a `GET` request matching the one ManageEngine will provide, e.g. `https://zapier.com/hooks/catch/111111/222222/`. It is important to use a `GET` request because Zapier does not make query string parameters available to `POST` webhooks.
 1. Upon a successful test, optionally click the `view your hook` link to see the parameters you posted. If your ManageEngine URL used a template like `?mobileNumber=%mobNo%&message=%message` in Zapier you should see the `querystring__mobileNumber` and `querystring__message` parameters. Then click `Continue`.
 
 ### 3) Set up the RingCentral SMS Action
