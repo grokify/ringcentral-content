@@ -1,6 +1,6 @@
-# ACT! Email-Connect to RingCentral Fax
+# Act! Email-Connect to RingCentral Fax
 
-The ACT! [Email-Connect (Outlook)](http://www.actaddons.com/addons/email_connect.asp) and [Email-Connect Professional](http://www.actaddons.com/addons/email_connect_professional.asp) connectors can send faxes to email addresses. Since RingCentral supports an [Email-to-Fax](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/6643) capability, these two services can be connected allowing ACT! to send email from Outlook via RingCentral's fax service.
+The [Act!](http://www.act.com/) [Email-Connect (Outlook)](http://www.actaddons.com/addons/email_connect.asp) and [Email-Connect Professional](http://www.actaddons.com/addons/email_connect_professional.asp) connectors can send faxes to email addresses. Since RingCentral supports an [Email-to-Fax](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/6643) capability, these two services can be connected allowing Act! to send email from Outlook via RingCentral's fax service.
 
 ## Integration Overview
 
@@ -13,7 +13,7 @@ To make these services interoperate as expected, it is necessary to set up an se
 This recipe has the following steps:
 
 1. Use of a mail server or mail service, e.g. [SparkPost](https://www.sparkpost.com/), [Mailgun](https://www.mailgun.com/), or [Sendgrid](https://sendgrid.com/).
-2. Configuring the mail server to listen for email-to-fax emails from ACT! Email-Connect, e.g. email addresses like 16501112222@myserver.com.
+2. Configuring the mail server to listen for email-to-fax emails from Act! Email-Connect, e.g. email addresses like 16501112222@myserver.com.
 3. Converting incoming Email-Connect MIME to RingCentral MIME format.
 4. Sending new MIME message to RingCentral fax service via email-to-fax format or RingCentral API.
 
@@ -29,7 +29,7 @@ To make this approach work with the RingCentral email-to-fax service (as opposed
 
 When Outlook / Exchange sends email outside of it's Exchange environment, it will use SMTP and MIME. This is useful because the RingCentral email-to-fax and API also use MIME with a few differences. For some background, if you use Gmail you can view the MIME format of any email by clicking `Show Original`.
 
-Here is an example MIME structure that will be sent from ACT! Email-Connect:
+Here is an example MIME structure that will be sent from Act! Email-Connect:
 
 ```
 multipart/mixed
@@ -63,10 +63,9 @@ The MIME email is typically a format like `multipart/mixed` where the first part
 
 To convert the Outlook MIME to something RingCentral can use for fax, we'll want to turn the email body into the first attachment. To do this, do the following steps:
 
-1. Run the ACT! MIME message through a MIME parser of your choice.
+1. Run the Act! MIME message through a MIME parser of your choice.
 2. Create a new MIME `multipart/mixed` object to copy desired MIME parts into.
 3. Retrieve the `multipart/alternative` body part and then extract the rich text part you want to retain, e.g. the `text/html` part. Load the `text/html` part as the first part in the new MIME object. You can set the `Content-Disposition` to `attachment` to ensure it is treated as such. The `text/plain` part can be discarded since that will not retain the formatting desired.
 4. For each subsequent MIME part, copy into the new MIME object.
 
 Now you can send the new MIME message to RingCentral's fax service via email-to-fax or API.
-
