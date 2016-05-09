@@ -49,7 +49,9 @@ While all RingCentral SDKs will automatically handle refresh tokens for you, if 
 
 ## Integration via Zapier
 
-To set up ManageEngine ADSelfService using HTTP-based Custom SMS Provider with RingCentral via Zapier, perform the following steps:
+To set up ManageEngine ADSelfService using HTTP-based Custom SMS Provider with RingCentral via Zapier, perform the following steps.
+
+Note: for the Zapier integration to work the phone number produced by the ManageEngine `%mobNo%` macro must match a format recognized by RingCentral, e.g. E.164 format with or without the leading `+`, for example, `+1 (650) 111-2222` would be represented as `16501112222`. The ManageEngine uses the formatting used in Active Directory.
 
 ### 1) Make a Zap!
 
