@@ -70,8 +70,12 @@ Login to [Zapier](https://zapier.com) and click the `MAKE A ZAP!` button.
 4. On the `Set up RingCentral SMS` form: for the `Phone Number From`, select your login phone number or a different one that is allowed to send SMS. For the `Phone Number To` value, select `Use a Custom Value` and then in the `Custom Value for Phone Numbrer to ID` input, click the text `+` icon to the right and select `Querystring Mobile Number`. In the `Text` field, click the text `+` icon and selec the `Querystring Message` property. Then click `Continue`.
 5. Optionally run the test to receive a SMS message and then click the `Finish` if you do not wish to add any additional actions.
 
+### Select Screenshots
 
+Selecting the Webhook Action:
 
+[][zapier_manageengine_ringcentral_01.png]
 
+Formatting the RingCentral API Call:
 
-
+[][zapier_manageengine_ringcentral_02.png]
