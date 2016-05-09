@@ -4,9 +4,9 @@
 
 References:
 
-1. [ManageEngine website](https://www.manageengine.com/products/self-service-password/sms-email-user-id-authentication.html)
-1. [ManageEngine documentation](https://www.manageengine.com/products/self-service-password/help/admin-guide/Admin/server-settings/sms-server-settings.html)
-1. [RingCentral developer guide](https://developer.ringcentral.com/api-docs/latest/index.html#!#RefSMSMessages.html)
+1. [ManageEngine ADSelfService SMS Password Reset](https://www.manageengine.com/products/self-service-password/sms-email-user-id-authentication.html)
+1. [ManageEngine Administration Guide](https://www.manageengine.com/products/self-service-password/help/admin-guide/Admin/server-settings/sms-server-settings.html)
+1. [RingCentral Developer Guide](https://developer.ringcentral.com/api-docs/latest/index.html#!#RefSMSMessages.html)
 
 ## Integration Overview
 
@@ -30,7 +30,7 @@ Essentially two steps are necessary:
 
 ### 1) ManageEngine SMS Compatible Endpoint
 
-ManageEngine uses a query string format of the following type in their documentation:
+ManageEngine uses a query string format of the following type in the [ManageEngine Administration Guide](https://www.manageengine.com/products/self-service-password/help/admin-guide/Admin/server-settings/sms-server-settings.html):
 
 `userName=xxx&password=yyy&mobileNumber=%mobNo%&message=%message%`
 
@@ -40,7 +40,7 @@ For RingCentral, the most important parts are the mobile number and the message 
 
 ### 2) Making the RingCentral API Call
 
-The `rcsendsms` code needs format the incoming query string data to use the [RingCentral SMS API](https://developer.ringcentral.com/api-docs/latest/index.html#!#RefSMSMessages.html). When the `rcsendsms` script receives the request, it should reformat it and send it to the RingCentral API using the mobile number as the `to.phoneNumber` JSON body value and the message as the `text` JSON body value.
+The `rcsendsms` code needs format the incoming query string data to use the RingCentral SMS API. When the `rcsendsms` script receives the request, it should reformat it and send it to the RingCentral API using the mobile number as the `to.phoneNumber` JSON body value and the message as the `text` JSON body value as specified in the [RingCentral API Developer Guide](https://developer.ringcentral.com/api-docs/latest/index.html#!#RefSMSMessages.html)
 
 For authorization, the RingCentral extension credentials which can be a stored using the OAuth 2.0 password grant available for private apps. If this service is behind your firewall and you are confident in your security, this may be all that you need. If you wish to lock down this service you can add your own password and send that as a header so that it's not captured in logs.
 
