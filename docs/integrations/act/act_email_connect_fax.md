@@ -12,7 +12,7 @@ To make these services interoperate as expected, it is necessary to set up an se
 
 This recipe has the following steps:
 
-1. Use of a mail server or mail service, e.g. [SparkPost](https://www.sparkpost.com/), [Mailgun](https://www.mailgun.com/) or [Sendgrid](https://sendgrid.com/).
+1. Use of a mail server or mail service, e.g. [SparkPost](https://www.sparkpost.com/), [Mailgun](https://www.mailgun.com/), or [Sendgrid](https://sendgrid.com/).
 2. Configuring the mail server to listen for email-to-fax emails from ACT! Email-Connect, e.g. email addresses like 16501112222@myserver.com.
 3. Converting incoming Email-Connect MIME to RingCentral MIME format.
 4. Sending new MIME message to RingCentral fax service via email-to-fax format or RingCentral API.
