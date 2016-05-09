@@ -1,4 +1,4 @@
-# ManageEngine ADSelfService Password Reset via SMS
+# ManageEngine ADSelfService Password Reset via RingCentral SMS
 
 [ManageEngine](https://www.manageengine.com) [ADSelfService](https://www.manageengine.com/products/self-service-password/) has a password reset feature that can utilize SMS for Two-Factor Authentication. This document describes how to integrate this service with [RingCentral APIs](https://developer.ringcentral.com/).
 

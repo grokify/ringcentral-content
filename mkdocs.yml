@@ -8,4 +8,5 @@ pages:
 - ['index.md', 'Introduction', 'RingCentral Integrations Cookbook']
 
 ## Integrations:
+- ['integrations/act/act_email_connect_fax.md', 'Integrations', 'ACT! Email-Connect']
 - ['integrations/manageengine/self_service_password_sms.md', 'Integrations', 'ManageEngine ADSelfService']
