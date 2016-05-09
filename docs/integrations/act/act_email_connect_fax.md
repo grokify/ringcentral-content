@@ -13,8 +13,8 @@ To make these services interoperate as expected, it is necessary to set up an se
 This recipe has the following steps:
 
 1. Use of a mail server or mail service, e.g. [Mailgun](https://www.mailgun.com/) [SparkPost](https://www.sparkpost.com/) or [Sendgrid](https://sendgrid.com/).
-2. Configuring the mail server to listen for email-to-fax emails, e.g. email addresses like 16501112222@myserver.com.
-3. MIME processing of incoming Outlook Connect to convert to RingCentral MIME format.
+2. Configuring the mail server to listen for email-to-fax emails from ACT! Email-Connect, e.g. email addresses like 16501112222@myserver.com.
+3. Converting incoming Email-Connect MIME to RingCentral MIME format.
 4. Sending new MIME message to RingCentral fax service via email-to-fax format or RingCentral API.
 
 ## Configuration
@@ -49,7 +49,9 @@ multipart/mixed
 - image/tiff
 ```
 
-This will cause RingCentral to treat the inline body `text/html` part as an attachment.
+This will cause RingCentral to treat the inline body `text/html` part as an attachment and remove both the `multipart/alternative` and `text/plain` parts.
+
+By converting MIME to MIME, no rendering of email to PDF or other formats will be required.
 
 ### Incoming MIME Format
 
