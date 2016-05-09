@@ -74,8 +74,8 @@ Login to [Zapier](https://zapier.com) and click the `MAKE A ZAP!` button.
 
 Selecting the Webhook Action:
 
-[][zapier_manageengine_ringcentral_01.png]
+![Selecting the Webhook Action](zapier_manageengine_ringcentral_01.png)
 
 Formatting the RingCentral API Call:
 
-[][zapier_manageengine_ringcentral_02.png]
+![Formatting the RingCentral API Call](zapier_manageengine_ringcentral_02.png)
