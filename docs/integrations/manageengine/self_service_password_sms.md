@@ -6,6 +6,7 @@ References:
 
 1. [ManageEngine ADSelfService SMS Password Reset](https://www.manageengine.com/products/self-service-password/sms-email-user-id-authentication.html)
 1. [ManageEngine Administration Guide](https://www.manageengine.com/products/self-service-password/help/admin-guide/Admin/server-settings/sms-server-settings.html)
+1. [ManageEngine ADSelfService forums](https://forums.manageengine.com/adselfservice-plus)
 1. [RingCentral Developer Guide](https://developer.ringcentral.com/api-docs/latest/index.html#!#RefSMSMessages.html)
 1. [RingCentral Developer Community Thread with ASP.NET example code](https://devcommunity.ringcentral.com/ringcentraldev/topics/is-authorization-always-needed-for-sending-sms-messages)
 
