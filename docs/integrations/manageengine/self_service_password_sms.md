@@ -12,7 +12,7 @@ References:
 
 ## Integration Overview
 
-ManageEngine interfaces with third-party SMS providers using a query-string based outbound webhook API call. This is not compatible with the RingCentral API which uses a different JSON body-based API. Basically, ManageEngine can send an outbound webhook via a `HTTP` `GET` or `POST` call with query string parameters and RingCentral listens for an authorized JSON body request.
+ManageEngine interfaces with third-party SMS providers using a query-string based outbound webhook API call. This is not compatible with the RingCentral API which uses a different JSON body-based API. The basic differences are that ManageEngine can send an outbound webhook via a `HTTP` `GET` or `POST` call with query string parameters and RingCentral listens for an authorized JSON body request.
 
 To get these two services to integrate, 2 approaches are available:
 
@@ -23,6 +23,10 @@ The two services that need to be connected are described below:
 
 1. [ManageEngine outbound webhook](https://www.manageengine.com/products/self-service-password/help/admin-guide/Admin/server-settings/sms-server-settings.html)
 2. [RingCentral SMS API](https://developer.ringcentral.com/api-docs/latest/index.html#!#RefSMSMessages.html)
+
+### SMS Phone Number Formatting
+
+Of note, the mobile number sent by ManageEngine's outbound webhook will be the mobile number in ActiveDirectory with all special chracters removed. This should work with RingCentral as long as the number includes the area code. For exampple, "1 (650) 111-2222" will become "16501112222" in ManageEngine. If you are using a custom integration, your code make any necessary modifications. When using Zapier, ensure your ActiveDirectory numbers begin with the country code and it should work seamlessly.
 
 ## Integration via Custom Middleware
 
@@ -52,7 +56,7 @@ While all RingCentral SDKs will automatically handle refresh tokens for you, if 
 
 To set up ManageEngine ADSelfService using HTTP-based Custom SMS Provider with RingCentral via Zapier, perform the following steps.
 
-Note: for the Zapier integration to work the phone number produced by the ManageEngine `%mobNo%` macro must match a format recognized by RingCentral, e.g. E.164 format with or without the leading `+`, for example, `+1 (650) 111-2222` would be represented as `16501112222` or `+16501112222`. ManageEngine uses the formatting used in Active Directory.
+Note: for the Zapier integration to work the phone number produced by the ManageEngine `%mobNo%` macro must match a format recognized by RingCentral, e.g. E.164 format with or without the leading `+`, for example, `+1 (650) 111-2222` would be represented as `16501112222` or `+16501112222`. ManageEngine uses the phone number from ActiveDirectory and will strip out all special characters so ensure that your Active Directory numbers include the country code and this should work seamlessly.
 
 ### 1) Make a Zap!
 
