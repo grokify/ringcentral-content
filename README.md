@@ -1,9 +1,9 @@
-RingCentral Integrations Cookbook
-=================================
+RingCentral Content
+===================
 
 [![Docs][docs-readthedocs-svg]][docs-readthedocs-link]
 
-This is a cookbook or how-to to perform certain app integrations with RingCentral.
+This is a list of articles for use with RingCentral.
 
 The integration instructions here are specifically for integrations that are **not** ready-made and available on the [RingCentral App Gallery](https://developer.ringcentral.com/app-gallery.html).
 
