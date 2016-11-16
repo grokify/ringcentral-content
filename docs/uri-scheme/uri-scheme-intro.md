@@ -16,20 +16,20 @@ This article covers:
 
 ## Supported URI Schemes
 
-### `rcmobile` URI Scheme
+### rcmobile URI Scheme
 
 The `rcmobile` scheme is specific to RingCentral and you can be sure it will launch the RingCentral softphone app. To initiate an outbound call you can use a URL like the following:
 
 * `rcmobile://call?number=16501112222`
 
-### `tel` URI Scheme
+### tel URI Scheme
 
 The `tel` scheme is an IETF standard and may be used by a variety of applications. If an application has general support for click-to-deal that is not RingCentral specific, this can be used when the RingCentral app has been registered to respond for that scheme with the operating system. You can access this scheme using the following:
 
 * `tel:1-650-111-2222`
 * `tel:16501112222`
 
-### `callto` URI Scheme
+### callto URI Scheme
 
 The `callto` scheme is a popular industry scheme that some applications may implement. The RingCentral softphone also supports registering for this scheme. To use this scheme, implement the following URL format:
 
@@ -61,4 +61,4 @@ var w = (window.parent)?window.parent:window;
 w.location.assign('rcmobile://call?number=16501112222');
 ```
 
-For more information, see http://stackoverflow.com/questions/2330545/
+For more information, see [http://stackoverflow.com/questions/2330545/](http://stackoverflow.com/questions/2330545/)
