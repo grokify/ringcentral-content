@@ -7,6 +7,9 @@ pages:
 # Introduction:
 - ['index.md', 'Introduction', 'RingCentral Integrations Cookbook']
 
+## Voice:
+- ['uri-scheme/uri-scheme-intro.md', 'Voice', 'URI Scheme Intro']
+
 ## Integrations:
 - ['integrations/act/act_email_connect_fax.md', 'Integrations', 'ACT! Email-Connect']
 - ['integrations/manageengine/self_service_password_sms.md', 'Integrations', 'ManageEngine ADSelfService']
