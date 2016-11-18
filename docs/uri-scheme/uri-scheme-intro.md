@@ -45,10 +45,10 @@ RingCentral supports [E.164 format](https://en.wikipedia.org/wiki/E.164) and E.1
 
 ```html
 <!-- rcmobile is only used by RingCentral -->
-<a href="rcmobile://call?number=16501112222"&gt;1-650-111-2222&lt;/a>
+<a href="rcmobile://call?number=16501112222">;1-650-111-2222</a>
 <!-- tel can be used by may be used by multiple apps -->
-<a href="tel:1-650-111-2222"&gt;1-650-111-2222&lt;/a>
-<a href="tel:16501112222"&gt;1-650-111-2222&lt;/a&gt;
+<a href="tel:1-650-111-2222">1-650-111-2222</a>
+<a href="tel:16501112222">1-650-111-2222</a>;
 ```
 
 ### Google Chrome
